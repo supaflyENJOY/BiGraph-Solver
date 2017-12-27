@@ -1,8 +1,6 @@
 // biGraph-Solver project main.go
 package main
 
-import "fmt"
-
 type SolutionData struct {
 	sourceData         [][]int
 	solutions          [][]int
