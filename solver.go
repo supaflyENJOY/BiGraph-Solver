@@ -26,9 +26,7 @@ func countSecondVerticesRelations(solution *SolutionData) {
 }
 
 func iterateOver(v int, solution *SolutionData) {
-	fmt.Println(v, len(solution.sourceData))
 	if v >= len(solution.sourceData) {
-		//fmt.Println(len(solution.temporarySolution), solution.resultCount)
 		tCount := len(solution.temporarySolution)
 		if tCount >= solution.resultCount {
 			if tCount > solution.resultCount {
