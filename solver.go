@@ -1,6 +1,7 @@
 // biGraph-Solver project main.go
 package main
 
+import "fmt"
 
 type SolutionData struct {
 	sourceData         [][]int
@@ -25,7 +26,7 @@ func countSecondVerticesRelations(solution *SolutionData) {
 }
 
 func iterateOver(v int, solution *SolutionData) {
-	//fmt.Println(v, len(solution.sourceData))
+	fmt.Println(v, len(solution.sourceData))
 	if v >= len(solution.sourceData) {
 		//fmt.Println(len(solution.temporarySolution), solution.resultCount)
 		tCount := len(solution.temporarySolution)
@@ -44,12 +45,10 @@ func iterateOver(v int, solution *SolutionData) {
 		iterateOver(v+1, solution)
 	}
 
-	foundSomething := false
 	for _, vertice := range solution.sourceData[v] {
 		if solution.usedVertices[vertice] {
 			continue
 		}
-		foundSomething = true
 		solution.usedVertices[vertice] = true
 		tempLen := len(solution.temporarySolution)
 		solution.temporarySolution = append(solution.temporarySolution, v, vertice)
@@ -58,9 +57,7 @@ func iterateOver(v int, solution *SolutionData) {
 		solution.usedVertices[vertice] = false
 	}
 
-	if foundSomething == false {
-		iterateOver(v+1, solution)
-	}
+	iterateOver(v+1, solution)
 }
 
 func GetSolutions(data *[][]int) *[][]int {
